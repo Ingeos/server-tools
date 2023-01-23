@@ -49,8 +49,6 @@ class UpgradeRecord(models.Model):
 
     domain = fields.Char(readonly=True)
 
-    definition = fields.Char(readonly=True)
-
     prefix = fields.Char(compute="_compute_prefix_and_suffix")
 
     suffix = fields.Char(compute="_compute_prefix_and_suffix")
@@ -104,6 +102,7 @@ class UpgradeRecord(models.Model):
             "required",
             "stored",
             "selection_keys",
+            "req_default",
             "hasdefault",
             "table",
             "_inherits",

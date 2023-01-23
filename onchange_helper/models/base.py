@@ -62,10 +62,6 @@ class Base(models.AbstractModel):
         return {
             f: v
             for f, v in all_values.items()
-            if not (
-                self._fields[f].compute
-                and not self._fields[f].inverse
-                and self._fields[f].readonly
-            )
+            if not (self._fields[f].compute and not self._fields[f].inverse)
             and (f in values or f in new_values or f in onchange_fields)
         }
